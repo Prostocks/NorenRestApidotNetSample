@@ -182,7 +182,7 @@ namespace NorenRestSample
             order.qty = "10";
             order.dscqty = "0";
             order.prc = "76.0025";
-            order.blprc = "74.0025";
+            order.blprc = "2.0025";
             order.prd = "H";
             order.trantype = "B";
             order.prctyp = "LMT";
@@ -203,8 +203,8 @@ namespace NorenRestSample
             order.qty = "10";
             order.dscqty = "0";
             order.prc = "2800";
-            order.blprc = "2780";
-            order.bpprc = "2820";
+            order.blprc = "20";
+            order.bpprc = "20";
             order.prd = "B";
             order.trantype = "B";
             order.prctyp = "LMT";
