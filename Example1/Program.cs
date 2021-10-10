@@ -51,7 +51,7 @@ namespace NorenRestSample
             loginMessage.factor2 = factor2;
             loginMessage.imei = imei;
             loginMessage.vc = vc;
-            loginMessage.source = "MOB";
+            loginMessage.source = "API";
             loginMessage.appkey = appkey;
             nApi.SendLogin(Handlers.OnAppLoginResponse, endPoint, loginMessage);
 
