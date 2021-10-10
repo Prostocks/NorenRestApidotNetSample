@@ -105,8 +105,7 @@
 | Date | Version | Changes | Details |
 | --- | --- | --- | --- |
 | 19-04-2021 | 1.0.0.1 | TouchlineBroker | TouchlineFeedadded.DocumentFormatupdated |
-|
-| 1.0.0.0 | InitialRelease | BasedonNorenRestAPIv1.10.0 |
+| 01-01-2021 | 1.0.0.0 | InitialRelease | BasedonNorenRestAPIv1.10.0 |
 
 # INTRODUCTION: About the API
 
