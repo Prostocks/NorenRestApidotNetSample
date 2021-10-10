@@ -1,8 +1,6 @@
 # StarApi-dotnet
 
-# TABLE
-
-# OFCONTENTS
+# API
 
 [INTRODUCTION](#_TOC_250047)
 
@@ -165,8 +163,7 @@ public static voidOnAppLoginResponse(NorenResponseMsg Response, bool ok)
 }
 ```
 
-The Response is casted to expected DataType ie in this example being LoginResponse.
-stat is checked to see if the request was successful.
+The Response is casted to expected DataType ie in this example being LoginResponse, stat is checked to see if the request was successful.
 
 # LoginandUserDetails
 
