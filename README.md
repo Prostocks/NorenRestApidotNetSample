@@ -1,7 +1,5 @@
 # StarApi-dotnet
 
-# API
-
 [INTRODUCTION](#_TOC_250047)
 
 [About the API](#_TOC_250046)
