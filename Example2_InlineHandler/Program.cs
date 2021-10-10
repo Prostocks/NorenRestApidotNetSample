@@ -24,8 +24,8 @@ namespace dotNetExample_InlineHandler
     {
         #region dev  credentials
 
-        public const string endPoint = "";
-        public const string wsendpoint = "";
+        public const string endPoint     = "https://starapiuat.prostocks.com/NorenWClientTP/";
+        public const string wsendpoint   = "wss://starapiuat.prostocks.com/NorenWS/";
         public const string uid = "";
         public const string actid = "";
         public const string pwd = "";
@@ -51,7 +51,7 @@ namespace dotNetExample_InlineHandler
             loginMessage.factor2 = factor2;
             loginMessage.imei = imei;
             loginMessage.vc = vc;
-            loginMessage.source = "MOB";
+            loginMessage.source = "API";
             loginMessage.appkey = appkey;
             BaseResponseHandler responseHandler = new BaseResponseHandler();
 
