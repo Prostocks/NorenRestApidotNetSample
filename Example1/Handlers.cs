@@ -17,7 +17,7 @@ namespace NorenRestSample
             //do all work here
             LoginResponse loginResp = Response as LoginResponse;
 
-            if (loginResp.stat == "Not_Ok")
+            if (loginResp.stat != "Ok")
             {
                 if (loginResp.emsg == "Invalid Input : Change Password" || loginResp.emsg == "Invalid Input : Password Expired")
                 {

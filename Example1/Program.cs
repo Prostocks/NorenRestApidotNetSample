@@ -80,24 +80,29 @@ namespace NorenRestSample
                             // process argument...
                             ActionPlaceCOorder();
                             break;
+                        case "G":
+                            nApi.SendGetHoldings(Handlers.OnHoldingsResponse, actid, "C");
+                            break;
                         case "H":
                             //check order
                             Console.WriteLine("Enter OrderNo:");
                             var orderno = Console.ReadLine();
                             nApi.SendGetOrderHistory(Handlers.OnOrderHistoryResponse, orderno);
                             break;
-                        case "G":
-                            nApi.SendGetHoldings(Handlers.OnHoldingsResponse, actid, "C");
+                        case "I":
+                            nApi.SendGetIndexList(Handlers.OnResponseNOP, "NSE");
                             break;
-                        case "O":
-                            nApi.SendGetOrderBook(Handlers.OnOrderBookResponse, "");
-                            break;
+
                         case "L":
                             nApi.SendGetLimits(Handlers.OnResponseNOP, actid);
                             break;
                         case "M":
                             ActionGetOrderMargin();
                             break;
+                        case "O":
+                            nApi.SendGetOrderBook(Handlers.OnOrderBookResponse, "");
+                            break;
+
                         case "P":
                             ProductConversion productConversion = new ProductConversion();
                             productConversion.actid = actid;
@@ -135,7 +140,9 @@ namespace NorenRestSample
                             //get user details
                             nApi.SendGetUserDetails(Handlers.OnUserDetailsResponse);
                             break;
-
+                        case "V":
+                            nApi.SendGetTPSeries(Handlers.OnResponseNOP, "NSE", "22" );
+                            break;
                         case "W":
                             nApi.SendSearchScrip(Handlers.OnResponseNOP, "NSE", "INFY");
                             break;
@@ -305,7 +312,8 @@ namespace NorenRestSample
             Console.WriteLine("W: search for scrips (min 3 chars)");
             Console.WriteLine("P: position convert");
             Console.WriteLine("U: get user details");
-            
+            Console.WriteLine("V: get intraday 1 min price data");
+            Console.WriteLine("I: get list of index names");
         }
         #endregion
     }
