@@ -17,6 +17,7 @@ namespace NorenRestSample
 
         public const string endPoint     = "https://starapiuat.prostocks.com/NorenWClientTP/";
         public const string wsendpoint   = "wss://starapiuat.prostocks.com/NorenWS/";
+        
         public const string uid = "";
         public const string actid = "";
         public const string pwd = "";
@@ -73,12 +74,15 @@ namespace NorenRestSample
                 {
                     switch (opt.ToUpper())
                     {
-                          case "B":
+                        case "B":
                             ActionPlaceBuyorder();
                             break;
                         case "C":
                             // process argument...
                             ActionPlaceCOorder();
+                            break;
+                        case "D":
+                            ActionGetOptionChain();
                             break;
                         case "G":
                             nApi.SendGetHoldings(Handlers.OnHoldingsResponse, actid, "C");
@@ -144,7 +148,11 @@ namespace NorenRestSample
                             nApi.SendGetTPSeries(Handlers.OnResponseNOP, "NSE", "22" );
                             break;
                         case "W":
-                            nApi.SendSearchScrip(Handlers.OnResponseNOP, "NSE", "INFY");
+                            Console.WriteLine("Enter exch:");
+                            exch = Console.ReadLine();
+                            Console.WriteLine("Enter Token:");
+                            token = Console.ReadLine();
+                            nApi.SendSearchScrip(Handlers.OnResponseNOP, exch, token);
                             break;
                         case "Y":
                             Console.WriteLine("Enter exch:");
@@ -294,6 +302,22 @@ namespace NorenRestSample
             nApi.SendGetBasketMargin(Handlers.OnResponseNOP, basket);
         }
 
+        public static void ActionGetOptionChain()
+        {
+            string exch;
+            string tsym;
+            string strike;
+            Console.WriteLine("Enter exch:");
+            exch = Console.ReadLine();
+            Console.WriteLine("Enter TradingSymbol:");
+            tsym = Console.ReadLine();
+            Console.WriteLine("Enter Strike:");
+            strike = Console.ReadLine();
+
+            nApi.SendGetOptionChain(Handlers.OnResponseNOP, exch, tsym, strike, 1);
+
+        }
+
         public static void ActionOptions()
         {
             Console.WriteLine("Q: logout.");
@@ -314,6 +338,7 @@ namespace NorenRestSample
             Console.WriteLine("U: get user details");
             Console.WriteLine("V: get intraday 1 min price data");
             Console.WriteLine("I: get list of index names");
+            Console.WriteLine("D: get Option Chain");
         }
         #endregion
     }
