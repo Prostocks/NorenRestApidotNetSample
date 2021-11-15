@@ -8,9 +8,9 @@
 - [ChangePassword](#md_changepwd)
 - [Logout](#md_logout)
 
-[MarketWatch](#md_marketwatch)
+[WatchLists](#md_watchlist)
 - [UserDetails](#md_userdetails)
-- [WatchLists](#md_watchlist)
+- [GetWatchLists](#md_getwatchlist)
 - [AddScriptoWatchList](#_TOC_250032)
 - [DeleteScriptoWatchList](#_TOC_250031)
 
@@ -23,14 +23,12 @@
 - [GetIndexList](#_TOC_250011)
 - [ExchMsg](#_TOC_250019)
 
-[Order Placement](#md_market)
+[Orders and Trades](#md_ordersntrades)
 - [PlaceOrder](#_TOC_250028)
 - [ModifyOrder](#_TOC_250027)
 - [CancelOrder](#_TOC_250026)
 - [ExitSNOOrder](#_TOC_250025)
 - [ProductConversion](#_TOC_250016)
-
-[Reports](#md_market)
 - [OrderMargin](#_TOC_250024)
 - [OrderBook](#_TOC_250023)
 - [TradeBook](#_TOC_250020)
