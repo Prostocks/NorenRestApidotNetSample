@@ -1,60 +1,37 @@
 # StarApi-dotnet
 
-[INTRODUCTION](#md_introduction)
+- [INTRODUCTION](#md_introduction)
 
-[Login](#_TOC_250041)
+- [Login](#md_login)
+- [ForgotPassword](#_TOC_250039)
+- [ChangePassword](#_TOC_250038)
+- [Logout](#md_logout)
 
-[Logout](#_TOC_250040)
+- [UserDetails](#md_userdetails)
+- [WatchLists](#_TOC_250036)
+- [GetWatchListNames](#_TOC_250035)
+- [SendGetMWList](#_TOC_250034)
+- [AddScriptoWatchList](#_TOC_250032)
+- [DeleteScriptoWatchList](#_TOC_250031)
 
-[LoginandUserDetails](#_TOC_250042)
+- [SearchScrips](#_TOC_250033)
+- [GetSecurityInfo](#_TOC_250030)
 
-[ForgotPassword](#_TOC_250039)
-
-[ChangePassword](#_TOC_250038)
-
-[UserDetails](#_TOC_250037)
-
-[WatchLists](#_TOC_250036)
-
-[GetWatchListNames](#_TOC_250035)
-
-[GetWatchList](#_TOC_250034)
-
-[SearchScrips](#_TOC_250033)
-
-[AddScriptoWatchList](#_TOC_250032)
-
-[DeleteScriptoWatchList](#_TOC_250031)
-
-[GetSecurityInfo](#_TOC_250030)
-
-[OrderandTrades](#_TOC_250029)
-
-[PlaceOrder](#_TOC_250028)
-
-[ModifyOrder](#_TOC_250027)
-
-[CancelOrder](#_TOC_250026)
-
-[ExitSNOOrder](#_TOC_250025)
-
-[OrderMargin](#_TOC_250024)
-
-[OrderBook](#_TOC_250023)
-
-[MultiLegOrderBook](#_TOC_250022)
-
-[SingleOrderHistory](#_TOC_250021)
-
-[TradeBook](#_TOC_250020)
+- [PlaceOrder](#_TOC_250028)
+- [ModifyOrder](#_TOC_250027)
+- [CancelOrder](#_TOC_250026)
+- [ExitSNOOrder](#_TOC_250025)
+- [OrderMargin](#_TOC_250024)
+- [OrderBook](#_TOC_250023)
+- [TradeBook](#_TOC_250020)
+- [SingleOrderHistory](#_TOC_250021)
+- [MultiLegOrderBook](#_TOC_250022)
+- [PositionsBook](#_TOC_250017)
+- [ProductConversion](#_TOC_250016)
 
 [ExchMsg](#_TOC_250019)
 
 [OrderMargin](#_TOC_250018)
-
-[PositionsBook](#_TOC_250017)
-
-[ProductConversion](#_TOC_250016)
 
 [HoldingsandLimits](#_TOC_250015)
 
@@ -83,6 +60,7 @@
 [UnSubscribeMarketData](#_TOC_250003)
 
 [SubscribeOrderUpdate](#_TOC_250000)
+
 
 
 # History
@@ -153,339 +131,45 @@ public static voidOnAppLoginResponse(NorenResponseMsg Response, bool ok)
 
 The Response is casted to expected DataType ie in this example being LoginResponse, stat is checked to see if the request was successful.
 
-# LoginandUserDetails
+##  <a name="md_login"></a> Login
 
-## Login
+###### public bool SendLogin(OnResponse response,string endPoint,LoginMessage login)
+connect to the broker, only once this function has returned successfully can any other operations be performed
 
-###### publicboolSendLogin(OnResponseresponse,stringendPoint,LoginMessagelogin)
-
-##### RequestDetails:LoginMessage
-
-| **Fields** | **Possible**** value **|** Description** |
-| --- | --- | --- |
-| endPoint |
- | TheServeripandport |
-
-| **Fields** | **Possible**** value **|** Description** |
-| --- | --- | --- |
-| apkversion\* |
- | Applicationversion. |
-| uid\* |
- | UserIdoftheloginuser |
-| pwd\* |
- | Sha256oftheuserenteredpassword. |
-| factor2\* |
- | DOBorPANasenteredbytheuser. |
-| vc\* |
- | Vendorcodeprovidedbynorenteam,alongwithconnectionURLs |
-| appkey\* |
- | Sha256ofuid|vendor\_key |
-| imei\* |
- | Sendmacifuserslogsinfordesktop,imeiisfrommobile |
-| ip\_address |
- | Optionalfield |
-
-| source | WEB/MOB |
- |
-| --- | --- | --- |
-
-##### Example:
-
-{\&quot;apkversion\&quot;:\&quot;1.0.0\&quot;,\&quot;uid\&quot;:\&quot;VIDYA\&quot;,\&quot;pwd\&quot;:\&quot;s3cur3Id\&quot;,\&quot;factor2\&quot;:\&quot;31-08-2017\&quot;,
-
-\&quot;imei\&quot;:\&quot;134243434\&quot;,\&quot;source\&quot;:\&quot;MOB\&quot;}&quot;
 
 ##### ResponseDetails:LoginResponse
 
-| **Fields** | **Possible**** value **|** Description** |
-| --- | --- | --- |
-| stat | OkorNot\_Ok | LoginSuccessOrfailurestatus |
-| susertoken |
- | Itwillbepresentonlyonloginsuccess.Thisdata tobesentin subsequent requests in jKey field and web socketconnectionwhileconnecting. |
-| lastaccesstime |
- | Itwillbepresentonlyonloginsuccess. |
-| spasswordreset | Y | IfYMandatorypasswordresettobeenforced.Otherwisethefieldwillbeabsent. |
-| emsg |
- | ThiswillbepresentonlyifLoginfails. |
+## <a name="md_logout"></a> Logout
 
-##### SampleSuccessResponse:
-
-{
-
-&quot;request\_time&quot;: &quot;20:18:47 19-05-2020&quot;,&quot;stat&quot;: &quot;Ok&quot;,
-
-&quot;susertoken&quot;: &quot;3b97f4c67762259a9ded6dbd7bfafe2787e662b3870422ddd343a59895f423a0&quot;,&quot;lastaccesstime&quot;: &quot;1589899727&quot;
-
-}
-
-##### SampleFailureResponse:
-
-{
-
-&quot;request\_time&quot;: &quot;20:32:14 19-05-2020&quot;,&quot;stat&quot;: &quot;Not\_Ok&quot;,
-
-&quot;emsg&quot;:&quot;InvalidInput :WrongPassword&quot;
-
-}
-
-## Logout
-
-###### publicboolSendLogout(OnResponseresponse)
+###### public bool SendLogout(OnResponse response)
 
 ##### RequestDetails:NoParams
 
-| **Fields** | **Possible**** value **|** Description** |
-| --- | --- | --- |
-| - | - | - |
-
 ##### ResponseDetails:LogoutResponse
 
-| **Fields** | **Possible**** value **|** Description** |
-| --- | --- | --- |
-| stat | OkorNot\_Ok | LogoutSuccessOrfailurestatus |
-| request\_time |
- | Itwillbepresentonlyonsuccessfullogout. |
-| emsg |
- | ThiswillbepresentonlyifLogoutfails. |
+## <a name="md_forgot"></a> ForgotPassword
 
-##### SampleSuccessResponse:
+###### publicboolSendForgotPassword(OnResponseresponse,string endpoint,string user,string pan,string dob)
 
-{
+##### RequestDetails: As Arguments
 
-&quot;stat&quot;:&quot;Ok&quot;,
+##### ResponseDetails:ForgotPasswordResponse
 
-&quot;request\_time&quot;:&quot;10:43:41 28-05-2020&quot;
+## <a name="md_changepwd"></a> ChangePassword
 
-}
-
-##### SampleFailureResponse:
-
-{
-
-&quot;stat&quot;:&quot;Not\_Ok&quot;,&quot;emsg&quot;:&quot;ServerTimeout:&quot;
-
-}
-
-## ForgotPassword
-
-###### publicboolSendForgotPassword(OnResponseresponse,stringendpoint,stringuser,stringpan,stringdob)
-
-##### RequestDetails:
-
-| **Fields** | **Possible**** value **|** Description** |
-| --- | --- | --- |
-| endpoint |
- | WebApiendpoint |
-
-| user\* |
- | UserId |
-| --- | --- | --- |
-| pan\* |
- | Panoftheuser |
-| dob\* |
- | Dateofbirth |
-
-##### ResponseDetails:ForgotPasswordResponse.
-
-| **Fields** | **Possible**** value **|** Description** |
-| --- | --- | --- |
-| stat | OkorNot\_Ok | PasswordresetisSuccessOrfailurestatus |
-| request\_time |
- | Responsereceivedtime. |
-| emsg |
- | Thiswillbepresentonlyifpasswordresetfails.(&quot;InvalidUserorUserDetails&quot;) |
-
-##### SampleSuccessResponse:
-
-{
-
-&quot;request\_time&quot;:&quot;10:52:5628-05-2020&quot;,&quot;stat&quot;:&quot;Ok&quot;
-
-}
-
-##### SampleFailureResponse:
-
-{
-
-&quot;request\_time&quot;:&quot;17:42:1326-05-2020&quot;,&quot;stat&quot;:&quot;Not\_Ok&quot;,
-
-&quot;emsg&quot;:&quot;ErrorOccurred :Wrong userid oruser details&quot;
-
-}
-
-## ChangePassword
-
-###### publicboolChangepwd(OnResponseresponse,Changepwdchangepwd)
+###### public bool Changepwd(OnResponse response,Changepwd changepwd)
 
 ##### RequestDetails:Changepwd
 
-| **Fields** | **Possible**** value **|** Description** |
-| --- | --- | --- |
-| uid\* |
- | UserId |
-| oldpwd\* |
- | Sha256ofoldpassword |
-| pwd\* |
- | Newpasswordinplaintext |
-
 ##### ResponseDetails:ChangepwdResponse
 
-| **Fields** | **Possible**** value **|** Description** |
-| --- | --- | --- |
-| stat | OkorNot\_Ok | PasswordresetisSuccessOrfailurestatus |
-| request\_time |
- | Responsereceivedtime. |
-| dmsg |
- | Thiswillbepresentonlyincaseofsuccess.Numberofdaystoexpirywillbepresentinsame. |
-| emsg |
- | Thiswillbepresentonlyifpasswordchangefails |
+## <a name="md_userdetails"></a> UserDetails
 
-##### SampleSuccessResponse:
-
-{
-
-&quot;request\_time&quot;:&quot;10:20:0427-05-2020&quot;,&quot;stat&quot;:&quot;Ok&quot;,
-
-&quot;dmag&quot;:&quot;PasswordChangeSuccess.Yournewpasswordwillexpirein15&quot;
-
-}
-
-##### SampleFailureResponse:
-
-{
-
-&quot;request\_time&quot;:&quot;10:21:0927-05-2020&quot;,&quot;stat&quot;:&quot;Not\_Ok&quot;,
-
-&quot;emsg&quot;:&quot;Error Occurred : Password already used&quot;
-
-}
-
-## UserDetails
-
-###### publicboolSendGetUserDetails(OnResponseresponse)
+###### public bool SendGetUserDetails(OnResponse response)
 
 ##### RequestDetails:NoParams
 
 ##### ResponseDetails:UserDetailsResponse
-
-| **Fields** | **Possible**** value **|** Description** |
-| --- | --- | --- |
-
-| stat | OkorNot\_Ok | Userdetailssuccessorfailureindication. |
-| --- | --- | --- |
-| exarr |
- | arrayofstringswithenabledexchangenames |
-| orarr |
- | arrayofstringswithenabledpricetypesforuser |
-| prarr |
- | arrayofProductObjwithenabledproducts,asdefinedbelow. |
-| brkname |
- | Brokerid |
-| brnchid |
- | Branchid |
-| email |
- |
- |
-| actid |
- |
- |
-| uprev |
- | AlwaysitwillbeanINVESTOR,othertypesofusernotallowedtologinusingthisAPI. |
-| request\_time |
- | Itwillbepresentonlyinasuccessfulresponse. |
-| emsg |
- | Thiswillbepresentonlyincaseoferrors. |
-
-##### ProductObjformat
-
-| **Fields** | **Possible**** value **|** Description** |
-| --- | --- | --- |
-| prd |
- | Productname |
-| s\_prdt\_ali |
- | Productdisplayname |
-| exch |
- | arrayofstringswithenabled,allowedexchangenames |
-
-##### SampleSuccessResponse:
-
-{
-
-&quot;request\_time&quot;: &quot;20:20:04 19-05-2020&quot;,&quot;prarr&quot;: [
-
-{ &quot;prd&quot;:&quot;C&quot;,
-
-&quot;s\_prdt\_ali&quot; : &quot;Delivery&quot;,&quot;exch&quot;:[&quot;NSE&quot;,&quot;BSE&quot;]
-
-},
-
-{ &quot;prd&quot;:&quot;I&quot;,
-
-&quot;s\_prdt\_ali&quot; : &quot;Intraday&quot;,
-
-&quot;exch&quot; :[&quot;NSE&quot;, &quot;BSE&quot;, &quot;NFO&quot;]
-
-},
-
-, { &quot;prd&quot;:&quot;H&quot;,
-
-&quot;s\_prdt\_ali&quot; : &quot;High Leverage&quot;,&quot;exch&quot;:[&quot;NSE&quot;,&quot;BSE&quot;,&quot;NFO&quot;]
-
-},
-
-{ &quot;prd&quot;:&quot;B&quot;,
-
-&quot;s\_prdt\_ali&quot; : &quot;Bracket Order&quot;,&quot;exch&quot;:[&quot;NSE&quot;,&quot;BSE&quot;,&quot;NFO&quot;]
-
-}
-
-],
-
-&quot;exarr&quot;: [
-
-&quot;NSE&quot;,&quot;NFO&quot;
-
-],
-
-&quot;orarr&quot;: [
-
-&quot;MKT&quot;,
-
-&quot;LMT&quot;,
-
-&quot;SL-LMT&quot;,
-
-&quot;SL-MKT&quot;,
-
-&quot;DS&quot;,
-
-&quot;2L&quot;,
-
-&quot;3L&quot;,&quot;4L&quot;
-
-],
-
-&quot;brkname&quot;:&quot;VIDYA&quot;,
-
-&quot;brnchid&quot;: &quot;VIDDU&quot;,
-
-&quot;email&quot;:[&quot;gururaj@gmail.com&quot;,](mailto:gururaj@gmail.com)&quot;actid&quot;: &quot;GURURAJ&quot;,
-
-&quot;uprev&quot;:&quot;INVESTOR&quot;,
-
-&quot;stat&quot;: &quot;Ok&quot;
-
-}
-
-##### SampleFailureResponse:
-
-{
-
-&quot;stat&quot;: &quot;Not\_Ok&quot;,
-
-&quot;emsg&quot;: &quot;Session Expired : Invalid Session Key&quot;
-
-}
 
 # WatchLists
 
