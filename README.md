@@ -1,12 +1,6 @@
 # StarApi-dotnet
 
-[INTRODUCTION](#_TOC_250047)
-
-[About the API](#_TOC_250046)
-
-[Initialize](#_TOC_250044)
-
-[MakingRequests](#_TOC_250043)
+[INTRODUCTION](#_introduction)
 
 [Login](#_TOC_250041)
 
@@ -88,22 +82,18 @@
 
 [UnSubscribeMarketData](#_TOC_250003)
 
-[SubscribeMarketDataDepth](#_TOC_250002)
-
-[UnsubscribeDepth](#_TOC_250001)
-
 [SubscribeOrderUpdate](#_TOC_250000)
 
-# Version
 
 # History
 
 | Date | Version | Changes | Details |
 | --- | --- | --- | --- |
-| 19-04-2021 | 1.0.0.1 | TouchlineBroker | TouchlineFeedadded.DocumentFormatupdated |
-| 01-01-2021 | 1.0.0.0 | InitialRelease | BasedonNorenRestAPIv1.10.0 |
+| 15-11-2021 | 1.0.11.0 | SearchScrips | search text is encoded for M&M etc  |
+| 19-04-2021 | 1.0.0.1 | TouchlineBroker | TouchlineFeedadded  |
+| 01-01-2021 | 1.0.0.0 | InitialRelease | Based on NorenRestAPI v1.10.0 |
 
-# INTRODUCTION: About the API
+# <a name="md_introduction"></a> INTRODUCTION: About the API
 
 The Api is a dotNet wrapper of the StarWebAPI whichoffers a combination of Rest calls and WebSocket for the purposes of Trading.
 
