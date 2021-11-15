@@ -111,7 +111,7 @@ namespace NorenRestSample
                             ProductConversion productConversion = new ProductConversion();
                             productConversion.actid = actid;
                             productConversion.exch = "NSE";
-                            productConversion.ordersource = "MOB";
+                            productConversion.ordersource = "API";
                             productConversion.prd = "C";
                             productConversion.prevprd = "I";
                             productConversion.qty = "1";
@@ -202,7 +202,7 @@ namespace NorenRestSample
             order.trantype = "B";
             order.prctyp = "LMT";
             order.ret = "DAY";
-            order.ordersource = "MOB";
+            order.ordersource = "API";
 
             nApi.SendPlaceOrder(Handlers.OnResponseNOP, order);
         }
@@ -224,7 +224,7 @@ namespace NorenRestSample
             order.trantype = "B";
             order.prctyp = "LMT";
             order.ret = "DAY";
-            order.ordersource = "MOB";
+            order.ordersource = "API";
 
             nApi.SendPlaceOrder(Handlers.OnResponseNOP, order);
         }
@@ -245,7 +245,7 @@ namespace NorenRestSample
             order.trantype = "B";
             order.prctyp = "LMT";
             order.ret = "DAY";
-            order.ordersource = "MOB";
+            order.ordersource = "API";
 
             nApi.SendPlaceOrder(Handlers.OnResponseNOP, order);
         }

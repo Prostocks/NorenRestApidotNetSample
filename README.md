@@ -3,14 +3,12 @@
 - [INTRODUCTION](#md_introduction)
 
 - [Login](#md_login)
-- [ForgotPassword](#_TOC_250039)
-- [ChangePassword](#_TOC_250038)
+- [ForgotPassword](#md_forgot)
+- [ChangePassword](#md_changepwd)
 - [Logout](#md_logout)
 
 - [UserDetails](#md_userdetails)
-- [WatchLists](#_TOC_250036)
-- [GetWatchListNames](#_TOC_250035)
-- [SendGetMWList](#_TOC_250034)
+- [WatchLists](#md_watchlist)
 - [AddScriptoWatchList](#_TOC_250032)
 - [DeleteScriptoWatchList](#_TOC_250031)
 
@@ -21,46 +19,31 @@
 - [ModifyOrder](#_TOC_250027)
 - [CancelOrder](#_TOC_250026)
 - [ExitSNOOrder](#_TOC_250025)
+- [ProductConversion](#_TOC_250016)
+
 - [OrderMargin](#_TOC_250024)
 - [OrderBook](#_TOC_250023)
 - [TradeBook](#_TOC_250020)
 - [SingleOrderHistory](#_TOC_250021)
 - [MultiLegOrderBook](#_TOC_250022)
+- [BasketOrderMargin](#_TOC_250024)
+
 - [PositionsBook](#_TOC_250017)
-- [ProductConversion](#_TOC_250016)
+- [Holdings](#_TOC_250014)
+- [Limits](#_TOC_250013)
 
-[ExchMsg](#_TOC_250019)
-
-[OrderMargin](#_TOC_250018)
-
-[HoldingsandLimits](#_TOC_250015)
-
-[Holdings](#_TOC_250014)
-
-[Limits](#_TOC_250013)
-
-[MarketInfo](#_TOC_250012)
-
-[GetIndexList](#_TOC_250011)
-
-[GetTopListNames](#_TOC_250010)
-
-[GetTopList](#_TOC_250009)
-
-[GetTimePriceData(Chartdata)](#_TOC_250008)
-
-[GetOptionChain](#_TOC_250007)
+- [ExchMsg](#_TOC_250019)
+- [GetQuote](#_TOC_250012)
+- [GetTimePriceData(Chartdata)](#_TOC_250008)
+- [GetIndexList](#_TOC_250011)
+- [GetOptionChain](#_TOC_250007)
 
 [Order Updates and MarketData Update](#_TOC_250006)
 
-[Connect](#_TOC_250005)
-
-[SubscribeMarketData](#_TOC_250004)
-
-[UnSubscribeMarketData](#_TOC_250003)
-
-[SubscribeOrderUpdate](#_TOC_250000)
-
+- [Connect](#_TOC_250005)
+- [SubscribeMarketData](#_TOC_250004)
+- [UnSubscribeMarketData](#_TOC_250003)
+- [SubscribeOrderUpdate](#_TOC_250000)
 
 
 # History
