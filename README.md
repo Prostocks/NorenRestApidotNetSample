@@ -73,14 +73,14 @@ The namespace NorenRestApiWrapper and class NorenRestApi are of primary use and 
 To initialize the api the following are needed 
 
 endPoint:The api end point as instructed by ProStocks
-Appkey:The secretkey issued to you, **donot append the userid to it.**
+Appkey:The secretkey issued to you,donot append the userid to it.
 
 ### MakingRequests
 
 We will be creating an object of NorenRestApi to make requests the callback is taken as an argument in the requestmethod.
 
 ```
-LoginMessage loginMessage = new LoginMessage();**
+LoginMessage loginMessage = new LoginMessage();
 loginMessage.uid = uid;
 loginMessage.pwd = pwd;
 loginMessage.factor2 = pan;
@@ -99,7 +99,7 @@ In the above example we are sending the Loginrequest,this method takes three arg
 
 The Callback is of signature
 
- ###### public delegate void OnResponse(NorenResponseMsg Response,bool ok)**
+ ###### public delegate void OnResponse(NorenResponseMsg Response,bool ok)
 
 A Typical callback will be handled as below
 
@@ -356,7 +356,7 @@ Api.OnOrderCallback += Application.OnOrderHandler;
 ###### public bool SubscribeToken(string exch,string token)
 
 ##### Request:
-| **Fields** | **Possible  value **|** Description** |
+|Fields |Possible  value| Description |
 | --- | --- | --- |
 | exch | NSE,BSE,NFO... | Exchange |
 | token |
@@ -366,7 +366,7 @@ Api.OnOrderCallback += Application.OnOrderHandler;
 
 Accept for t, e,and tk other fields may/may not be present.
 
-| **Fields** | **Possible  value **|** Description** |
+|Fields |Possible  value| Description |
 | --- | --- | --- |
 | t | tf | tf representstouchlinefeed |
 | e | NSE,BSE,NFO.. | Exchangename |
@@ -393,7 +393,7 @@ Accept for t, e,and tk other fields may/may not be present.
 
 ##### Request:
 
-| **Fields** | **Possible  value **|** Description** |
+|Fields |Possible  value| Description |
 | --- | --- | --- |
 | exch | NSE,BSE,NFO... | Exchange |
 | token || ScripToken |
@@ -404,13 +404,13 @@ Accept for t, e,and tk other fields may/may not be present.
 
 ##### Request:
 
-| **Fields** | **Possible  value **|** Description** |
+|Fields|Possible  value| Description |
 | --- | --- | --- |
 | actid | | Account id based on which order updated to be sent. |
 
 ##### OrderUpdatesubscriptionUpdates:NorenOrderFeed
 
-| **Fields** | **Possible  value **|** Description** |
+|Fields |Possible  value| Description |
 | --- | --- | --- |
 | t | om | "om" represents touchlinefeed |
 | norenordno | | NorenOrderNumber |
