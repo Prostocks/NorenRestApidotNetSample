@@ -1,6 +1,6 @@
 # StarApi-dotnet
 
-- [INTRODUCTION](#md_introduction)
+[INTRODUCTION](#md_introduction)
 
 [Login and Session](#md_session)
 - [Login](#md_login)
@@ -95,7 +95,7 @@ In the above example we are sending the Loginrequest,this method takes three arg
 
 1. Callback: this is the function where the application will be handling the response
 2. Endpoint: NorenOMSaddress
-3. MessageData:parametersoftherequestbeingmade.
+3. MessageData: parameters of the request being made.
 
 The Callback is of signature
 
@@ -121,7 +121,6 @@ The Response is casted to expected DataType ie in this example being LoginRespon
 
 ###### public bool SendLogin(OnResponse response,string endPoint,LoginMessage login)
 connect to the broker, only once this function has returned successfully can any other operations be performed
-
 
 ##### ResponseDetails:LoginResponse
 
@@ -200,17 +199,17 @@ connect to the broker, only once this function has returned successfully can any
 
 ## GetSecurityInfo
 
-###### public bool SendGetSecurityInfo  (  OnResponse response  ,  string exch  ,  string token)
+###### public bool SendGetSecurityInfo( OnResponse response,string exch,string token)
 
 ##### RequestDetails:
 
 ##### ResponseDetails:GetSecurityInfoResponse
 
-# OrderandTrades
+# Order and Trades
 
 ## PlaceOrder
 
-###### public bool SendPlaceOrder  (  OnResponse response  ,  PlaceOrder order  )
+###### public bool SendPlaceOrder( OnResponse response,PlaceOrder order  )
 
 ##### RequestDetails:PlaceOrder
 
@@ -219,91 +218,93 @@ connect to the broker, only once this function has returned successfully can any
 
 ## ModifyOrder
 
-###### bool SendModifyOrder  (  OnResponse response  ,  ModifyOrder order  )
+###### bool SendModifyOrder( OnResponse response,ModifyOrder order  )
 
 ##### RequestDetails:ModifyOrder
 ##### ResponseDetails:ModifyOrderResponse
 
 ## CancelOrder
 
-###### public bool SendCancelOrder  (  OnResponse response  ,  string norenordno)
+###### public bool SendCancelOrder( OnResponse response,string norenordno)
 
 ##### RequestDetails:
 ##### ResponseDetails:CancelOrderResponse
 
 ## ExitSNOOrder
 
-###### public bool SendExitSNOOrder  (  OnResponse response  ,  string norenordno  ,  string product)
+###### public bool SendExitSNOOrder( OnResponse response,string norenordno,string product)
 
 ##### RequestDetails:
 ##### ResponseDetails:ExitSNOOrderResponse
 
 ## OrderMargin
 
-###### public bool SendGetOrderMargin  (  OnResponse response  ,  OrderMargin ordermargin)
+###### public bool SendGetOrderMargin( OnResponse response,OrderMargin ordermargin)
 
 ##### RequestDetails:OrderMargin
 ##### ResponseDetails:OrderMarginResponse
 
 ## OrderBook
 
-###### public bool SendGetOrderBook  (  OnResponse response  ,  string product)
+###### public bool SendGetOrderBook( OnResponse response,string product)
 
 ##### RequestDetails:
 ##### ResponseDetails:OrderBookResponselistofOrderBookItem
+
 ## MultiLegOrderBook
 
-###### public bool SendGetMultiLegOrderBook  (  OnResponse response  ,  string product)
+###### public bool SendGetMultiLegOrderBook( OnResponse response,string product)
 
 ##### RequestDetails:
-
 ##### ResponseDetails:MultiLegOrderBookResponselistofMultiLegOrderBookItem
+
 ## SingleOrderHistory
 
-###### public bool SendGetOrderHistory  (  OnResponse response  ,  string norenordno)
+###### public bool SendGetOrderHistory( OnResponse response,string norenordno)
 
 ##### RequestDetails:
-
 ##### ResponseDetails:OrderHistoryResponselistofSingleOrdHistItem
+
 ## TradeBook
 
-###### public bool SendGetTradeBook  (  OnResponse response  ,  string account)
+###### public bool SendGetTradeBook( OnResponse response,string account)
 
 ##### RequestDetails:
 ##### ResponseDetails:TradeBookResponselistofTradeBookItem
 
 ## ExchMsg
 
-###### public bool SendGetExchMsg  (  OnResponse response  ,  ExchMsg exchmsg)
+###### public bool SendGetExchMsg( OnResponse response,ExchMsg exchmsg)
 
 ##### RequestDetails:ExchMsg
 ##### ResponseDetails:ExchMsgResponselistofExchMsgItem
 
 ## OrderMargin
 
-###### public bool SendGetOrderMargin  (  OnResponse response  ,  OrderMargin ordermargin)
+###### public bool SendGetOrderMargin( OnResponse response,OrderMargin ordermargin)
 
 ##### RequestDetails:OrderMargin
 ##### ResponseDetails:OrderMarginResponse
 
 ## PositionsBook
 
-###### public bool SendGetPositionBook  (  OnResponse response  ,  string account)
+###### public bool SendGetPositionBook( OnResponse response,string account)
 
 ##### RequestDetails:
 ##### ResponseDetails:PositionBookResponselistofPositionBookItem
+
 ## ProductConversion
 
-###### public bool SendGetOrderMargin  (  OnResponse response  ,  ProductConversion prdConv)
+###### public bool SendGetOrderMargin( OnResponse response,ProductConversion prdConv)
 
 ##### RequestDetails:ProductConversion
 ##### ResponseDetails:ProductConversionResponse
 
-# HoldingsandLimits
+# Holdings and Limits
 
 ## Holdings
 
-###### public bool SendGetHoldings  (  OnResponse response  ,  string account  ,  string product)
+###### public bool SendGetHoldings( OnResponse response,string account,string product)
 
 ##### RequestDetails:
 ##### ResponseDetails:HoldingsResponselistofHoldingsItem
@@ -339,7 +340,7 @@ connect to the broker, only once this function has returned successfully can any
 ##### RequestDetails:
 ##### ResponseDetails:
 
-# OrderUpdatesandMarketDataUpdate
+# OrderUpdates and MarketDataUpdate
 
 This Api allows you to receive updates receivethe marketdata and order updates in the application callbacks as an option, to do so connect as follows.
 
