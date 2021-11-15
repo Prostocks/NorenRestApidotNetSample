@@ -1,6 +1,6 @@
 # StarApi-dotnet
 
-[INTRODUCTION](#_introduction)
+[INTRODUCTION](#md_introduction)
 
 [Login](#_TOC_250041)
 
@@ -93,7 +93,7 @@
 | 19-04-2021 | 1.0.0.1 | TouchlineBroker | TouchlineFeedadded  |
 | 01-01-2021 | 1.0.0.0 | InitialRelease | Based on NorenRestAPI v1.10.0 |
 
-# <a name="md_introduction"></a> INTRODUCTION: About the API
+### <a name="md_introduction"></a> INTRODUCTION: About the API
 
 The Api is a dotNet wrapper of the StarWebAPI whichoffers a combination of Rest calls and WebSocket for the purposes of Trading.
 
