@@ -145,7 +145,12 @@ namespace NorenRestSample
                             nApi.SendGetUserDetails(Handlers.OnUserDetailsResponse);
                             break;
                         case "V":
-                            nApi.SendGetTPSeries(Handlers.OnResponseNOP, "NSE", "22" );
+                            DateTime today = DateTime.Now.Date;
+                            double start = ConvertToUnixTimestamp(today);
+
+                            //start and end time are optional
+                            //here we are getting one day's data
+                            nApi.SendGetTPSeries(Handlers.OnResponseNOP, "NSE", "22", start.ToString() );
                             break;
                         case "W":
                             Console.WriteLine("Enter exch:");
@@ -184,6 +189,18 @@ namespace NorenRestSample
         }
         
 
+        public static DateTime ConvertFromUnixTimestamp(double timestamp)
+        {
+            DateTime origin = new DateTime(1970, 1, 1, 0, 0, 0, 0, DateTimeKind.Utc);
+            return origin.AddSeconds(timestamp);
+        }
+
+        public static double ConvertToUnixTimestamp(DateTime date)
+        {
+            DateTime origin = new DateTime(1970, 1, 1, 0, 0, 0, 0, DateTimeKind.Utc);
+            TimeSpan diff = date.ToUniversalTime() - origin;
+            return Math.Floor(diff.TotalSeconds);
+        }
 
         #region actions
         public static void ActionPlaceCOorder()
