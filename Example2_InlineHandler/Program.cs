@@ -9,7 +9,7 @@ namespace dotNetExample_InlineHandler
 {
     public class BaseResponseHandler
     {
-        public AutoResetEvent ResetEvent = new AutoResetEvent(false);
+        public AutoResetEvent ResponseEvent = new AutoResetEvent(false);
 
         public NorenResponseMsg baseResponse;
 
@@ -17,7 +17,7 @@ namespace dotNetExample_InlineHandler
         {
             baseResponse = Response;
 
-            ResetEvent.Set();
+            ResponseEvent.Set();
         }
     }
     class Program
@@ -57,7 +57,7 @@ namespace dotNetExample_InlineHandler
 
             nApi.SendLogin(responseHandler.OnResponse, endPoint, loginMessage);
 
-            responseHandler.ResetEvent.WaitOne();
+            responseHandler.ResponseEvent.WaitOne();
 
             LoginResponse loginResponse = responseHandler.baseResponse as LoginResponse;
             Console.WriteLine("app handler :" + responseHandler.baseResponse.toJson());
