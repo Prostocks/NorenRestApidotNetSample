@@ -26,30 +26,20 @@ namespace dotNetExample
 
         public const string endPoint = "https://starapiuat.prostocks.com/NorenWClientTP/";
         public const string wsendpoint = "wss://starapiuat.prostocks.com/NorenWS/";
-        public const string uid = "P1007";
-        public const string actid = "P1007";
-        public const string pwd = "Zxc@1234";
+        public const string uid = "";
+        public const string actid = "";
+        public const string pwd = "";
         public const string factor2 = dob;
         public const string pan = "";
-        public const string dob = "10122001";
-        public const string imei = "abc1234";
-        public const string vc = "P1007_U";
-
-
-        public const string appkey = "pssUATAPI26102021HJKL09IL2";
+        public const string dob = "";
+        public const string imei = "";
+        public const string vc = "";
+        public const string appkey = "";
         public const string newpwd = "";
         #endregion 
 
         public static NorenRestApi nApi = new NorenRestApi();
-        public static bool loggedin = false;
 
-
-        public static void OnStreamConnect(NorenStreamMessage msg)
-        {
-            Program.loggedin = true;
-            Console.WriteLine("feed handler : connected");
-
-        }
         static void Main(string[] args)
         {
             LoginMessage loginMessage = new LoginMessage();
@@ -69,8 +59,7 @@ namespace dotNetExample
 
             LoginResponse loginResponse = responseHandler.baseResponse as LoginResponse;
             Console.WriteLine("app handler :" + responseHandler.baseResponse.toJson());
-
-            nApi.onStreamConnectCallback = Program.OnStreamConnect;
+            
             //only after login success connect to websocket for market/order updates
             if (nApi.ConnectWatcher(wsendpoint, Program.OnFeed, null))
             { 
@@ -79,7 +68,15 @@ namespace dotNetExample
                 //send subscription for reliance
                 nApi.SubscribeToken("NSE", "2885");
             }
+            int token = 1;
+            while(true)
+            {
+                //check every 5min if we are connected
+                Thread.Sleep(5 * 60 * 1000);
+                nApi.SubscribeToken("NSE", token.ToString());
+                token++;
 
+            }
             Console.ReadLine();
         }
 

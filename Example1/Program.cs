@@ -150,7 +150,7 @@ namespace NorenRestSample
 
                             //start and end time are optional
                             //here we are getting one day's data
-                            nApi.SendGetTPSeries(Handlers.OnResponseNOP, "NSE", "22", start.ToString() );
+                            nApi.SendGetTPSeries(Handlers.OnResponseNOP, "NSE", "22", start.ToString(), null , "5" );
                             break;
                         case "W":
                             Console.WriteLine("Enter exch:");
@@ -172,6 +172,25 @@ namespace NorenRestSample
                             break;
                         case "FP":                            
                             nApi.SendForgotPassword(Handlers.OnResponseNOP,endPoint, uid, pan, dob);
+                            break;
+                        case "WU":
+                            nApi.UnSubscribeToken("NSE", "22");
+                            break;
+                        case "WL":
+                            Quote quote = new Quote();
+                            quote.exch = "NSE";
+                            quote.token = "22";
+
+                            List<Quote> l = new List<Quote>();
+                            l.Add(quote);
+
+                            nApi.UnSubscribe(l);
+                            break;
+                        case "ST":
+                            NorenRestApi nApi_2 = new NorenRestApi();
+                            nApi_2.SetSession(endPoint, uid, pwd, nApi.UserToken);
+                            nApi_2.SendGetHoldings(Handlers.OnHoldingsResponse, actid, "C");
+                            nApi_2.SendGetQuote(Handlers.OnResponseNOP, "NSE", "22");
                             break;
                         default:
                             // do other stuff...
