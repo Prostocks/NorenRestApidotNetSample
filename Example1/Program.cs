@@ -150,7 +150,9 @@ namespace NorenRestSample
 
                             //start and end time are optional
                             //here we are getting one day's data
-                            nApi.SendGetTPSeries(Handlers.OnResponseNOP, "NSE", "22", start.ToString(), null , "5" );
+                            nApi.SendGetTPSeries(Handlers.OnResponseNOP, "NSE", "22", start.ToString() );
+                            //to check for 5 min interval
+                            //nApi.SendGetTPSeries(Handlers.OnResponseNOP, "NSE", "22", start.ToString(), null , "5" );
                             break;
                         case "W":
                             Console.WriteLine("Enter exch:");
