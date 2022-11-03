@@ -68,15 +68,8 @@ namespace dotNetExample
                 //send subscription for reliance
                 nApi.SubscribeToken("NSE", "2885");
             }
-            int token = 1;
-            while(true)
-            {
-                //check every 5min if we are connected
-                Thread.Sleep(5 * 60 * 1000);
-                nApi.SubscribeToken("NSE", token.ToString());
-                token++;
-
-            }
+            Thread.Sleep(6000);
+            nApi.UnSubscribeToken("NSE", "2885");
             Console.ReadLine();
         }
 
