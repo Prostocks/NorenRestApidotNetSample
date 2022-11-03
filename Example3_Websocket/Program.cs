@@ -21,6 +21,7 @@ namespace dotNetExample
             ResponseEvent.Set();
         }
     }
+    #region feed merger
     public static class NorenFeedExtension
     {
         public static NorenFeed Add (NorenFeed f1, NorenFeed f2)
@@ -87,23 +88,25 @@ namespace dotNetExample
         }
         
     }
+    #endregion
     class Program
     {
         #region dev  credentials
 
-        public const string endPoint = "https://starapiuat.prostocks.com/NorenWClientTP/";
-        public const string wsendpoint = "wss://starapiuat.prostocks.com/NorenWS/";
-        public const string uid = "";
-        public const string actid = "";
-        public const string pwd = "";
-        public const string factor2 = dob;
-        public const string pan = "";
-        public const string dob = "";
-        public const string imei = "";
-        public const string vc = "";
-        public const string appkey = "";
-        public const string newpwd = "";
-        #endregion 
+        public static string endPoint = "";
+        public static string wsendpoint = "";
+        public static string uid = "";
+        public static string actid = "";
+        public static string pwd = "";
+        public static string dob = "";  // this is shared by AMith along with id?
+        public static string factor2 = dob;
+        public static string pan = "";
+        public static string imei = "";
+        public static string vc = "";
+
+        public static string appkey = "";
+        public static string newpwd = "";
+        #endregion      
 
         public static NorenRestApi nApi = new NorenRestApi();
         public static Dictionary<string, NorenFeed> mapMarketData = new Dictionary<string, NorenFeed>();
