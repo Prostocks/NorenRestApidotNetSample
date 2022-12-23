@@ -555,7 +555,7 @@ Sample Success Response :
 }
 
 
-#### <a name="md-get_option_greek"></a>get_option_greek(expiredate,StrikePrice,SpotPrice,InitRate,Volatility,OptionType)
+#### <a name="md-get_option_greek"></a>get_option_greek(expiredate,StrikePrice,SpotPrice,InterestRate,Volatility,OptionType)
 Options greeeks computed the delta, thetha, vega , rho values.
 
 Example: 
@@ -570,7 +570,7 @@ Request Details :
 |exd*||Expiry Date|
 |strprc*||Strike Price |
 |sptprc*||Spot Price|
-|int_rate*||Init Rate|
+|int_rate*||Interest Rate|
 |volatility*||Volatility|
 |optt||Option Type|
 
