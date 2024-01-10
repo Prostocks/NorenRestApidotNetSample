@@ -15,9 +15,8 @@ namespace NorenRestSample
     {
         #region dev  credentials
 
-        public const string endPoint     = "https://starapiuat.prostocks.com/NorenWClientTP/";
-        public const string wsendpoint   = "wss://starapiuat.prostocks.com/NorenWS/";
-        
+        public const string endPoint = "http://api.noren.com/NorenWClient/";
+        public const string wsendpoint = "wss://api.noren.com/NorenWSWeb/";
         public const string uid = "";
         public const string actid = "";
         public const string pwd = "";
@@ -28,8 +27,8 @@ namespace NorenRestSample
         public const string vc = "";
         public const string appkey = "";
         public const string newpwd = "";
-        #endregion    
-        
+        #endregion
+
 
         public static bool loggedin = false;
 
@@ -38,7 +37,8 @@ namespace NorenRestSample
         {
             Program.loggedin = true;
             nApi.SubscribeOrders(Handlers.OnOrderUpdate, uid);
-            nApi.SubscribeToken("NSE", "22");
+            //nApi.SubscribeToken("NSE", "22");
+            nApi.SubscribeTokenDepth("NSE", "22");
             
         }
         public static NorenRestApi nApi = new NorenRestApi();
@@ -150,9 +150,7 @@ namespace NorenRestSample
 
                             //start and end time are optional
                             //here we are getting one day's data
-                            nApi.SendGetTPSeries(Handlers.OnResponseNOP, "NSE", "22", start.ToString() );
-                            //to check for 5 min interval
-                            //nApi.SendGetTPSeries(Handlers.OnResponseNOP, "NSE", "22", start.ToString(), null , "5" );
+                            nApi.SendGetTPSeries(Handlers.OnResponseNOP, "NSE", "22", start.ToString(), null , "5" );
                             break;
                         case "W":
                             Console.WriteLine("Enter exch:");
@@ -193,6 +191,9 @@ namespace NorenRestSample
                             nApi_2.SetSession(endPoint, uid, pwd, nApi.UserToken);
                             nApi_2.SendGetHoldings(Handlers.OnHoldingsResponse, actid, "C");
                             nApi_2.SendGetQuote(Handlers.OnResponseNOP, "NSE", "22");
+                            break;
+                        case "OP":
+                            ActionGetOptionGreeks();
                             break;
                         default:
                             // do other stuff...
@@ -356,6 +357,17 @@ namespace NorenRestSample
 
         }
 
+        public static void ActionGetOptionGreeks()
+        {
+            string expiry = "24-NOV-2022";
+            string strike = "150";
+            string spot_price = "200";
+            string int_rate = "100";
+            string volality = "10";
+            string option_type = "CE";
+
+            nApi.SendGetOptionGreek(Handlers.OnResponseNOP, expiry, strike, spot_price, int_rate, volality, option_type);
+        }
         public static void ActionOptions()
         {
             Console.WriteLine("Q: logout.");
@@ -377,6 +389,7 @@ namespace NorenRestSample
             Console.WriteLine("V: get intraday 1 min price data");
             Console.WriteLine("I: get list of index names");
             Console.WriteLine("D: get Option Chain");
+            Console.WriteLine("OP: get Option Greek");
         }
         #endregion
     }
